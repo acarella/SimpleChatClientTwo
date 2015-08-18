@@ -2,7 +2,6 @@
 # platform :ios, '6.0'
 
 target 'SimpleChatClientTwo' do
-  pod 'CocoaAsyncSocket'
   pod 'JSQMessagesViewController'
 end
 

@@ -14,7 +14,6 @@
 		BEA985221B83A78A002325CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA985211B83A78A002325CC /* Images.xcassets */; };
 		BEA985251B83A78A002325CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEA985231B83A78A002325CC /* LaunchScreen.xib */; };
 		BEA985311B83A78A002325CC /* SimpleChatClientTwoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA985301B83A78A002325CC /* SimpleChatClientTwoTests.m */; };
-		BEA985521B83A8FB002325CC /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA985401B83A8FB002325CC /* AsyncSocket.m */; };
 		BEA985531B83A8FB002325CC /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA985421B83A8FB002325CC /* GCDAsyncSocket.m */; };
 		BEA985541B83A8FB002325CC /* HandshakeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA985441B83A8FB002325CC /* HandshakeHeader.m */; };
 		BEA985551B83A8FB002325CC /* MutableQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA985461B83A8FB002325CC /* MutableQueue.m */; };
@@ -38,6 +37,7 @@
 		BEA985851B83C277002325CC /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA985771B83C277002325CC /* SBJsonUTF8Stream.m */; };
 		BEA985861B83C277002325CC /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA985791B83C277002325CC /* SBJsonWriter.m */; };
 		BEA9858D1B83C55B002325CC /* IRCCloudJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA9858C1B83C55B002325CC /* IRCCloudJSONObject.m */; };
+		BEA9858F1B83DE08002325CC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA9858E1B83DE08002325CC /* libz.dylib */; };
 		FCC68917C37E0A8DC9E89458 /* libPods-SimpleChatClientTwo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BEAB490F382E55631CF5B1F /* libPods-SimpleChatClientTwo.a */; };
 /* End PBXBuildFile section */
 
@@ -68,8 +68,6 @@
 		BEA9852A1B83A78A002325CC /* SimpleChatClientTwoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleChatClientTwoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEA9852F1B83A78A002325CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEA985301B83A78A002325CC /* SimpleChatClientTwoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleChatClientTwoTests.m; sourceTree = "<group>"; };
-		BEA9853F1B83A8FB002325CC /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		BEA985401B83A8FB002325CC /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		BEA985411B83A8FB002325CC /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		BEA985421B83A8FB002325CC /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		BEA985431B83A8FB002325CC /* HandshakeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandshakeHeader.h; sourceTree = "<group>"; };
@@ -118,6 +116,7 @@
 		BEA985791B83C277002325CC /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		BEA9858B1B83C55B002325CC /* IRCCloudJSONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCCloudJSONObject.h; sourceTree = "<group>"; };
 		BEA9858C1B83C55B002325CC /* IRCCloudJSONObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCCloudJSONObject.m; sourceTree = "<group>"; };
+		BEA9858E1B83DE08002325CC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEA9858F1B83DE08002325CC /* libz.dylib in Frameworks */,
 				FCC68917C37E0A8DC9E89458 /* libPods-SimpleChatClientTwo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +142,7 @@
 		28E938B6DC2044351D20556C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEA9858E1B83DE08002325CC /* libz.dylib */,
 				1BEAB490F382E55631CF5B1F /* libPods-SimpleChatClientTwo.a */,
 			);
 			name = Frameworks;
@@ -226,8 +227,6 @@
 		BEA9853E1B83A8FB002325CC /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
-				BEA9853F1B83A8FB002325CC /* AsyncSocket.h */,
-				BEA985401B83A8FB002325CC /* AsyncSocket.m */,
 				BEA985411B83A8FB002325CC /* GCDAsyncSocket.h */,
 				BEA985421B83A8FB002325CC /* GCDAsyncSocket.m */,
 				BEA985431B83A8FB002325CC /* HandshakeHeader.h */,
@@ -440,7 +439,6 @@
 				BEA985561B83A8FB002325CC /* NSData+Base64.m in Sources */,
 				BEA985581B83A8FB002325CC /* WebSocketConnectConfig.m in Sources */,
 				BEA985171B83A78A002325CC /* main.m in Sources */,
-				BEA985521B83A8FB002325CC /* AsyncSocket.m in Sources */,
 				BEA985571B83A8FB002325CC /* WebSocket.m in Sources */,
 				BEA9857E1B83C277002325CC /* SBJsonStreamParserAdapter.m in Sources */,
 				BEA985851B83C277002325CC /* SBJsonUTF8Stream.m in Sources */,
@@ -572,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D0F147ADE56075D10DA2473 /* Pods-SimpleChatClientTwo.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleChatClientTwo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

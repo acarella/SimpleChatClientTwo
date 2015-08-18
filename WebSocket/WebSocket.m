@@ -22,7 +22,6 @@
 #import "WebSocket.h"
 #import "WebSocketFragment.h"
 #import "HandshakeHeader.h"
-#include <zlib.h>
 
 enum {
     WebSocketWaitingStateMessage = 0, //Starting on waiting for a new message
@@ -225,8 +224,8 @@ WebSocketWaitingState waitingState;
 
 - (void)sendMessage:(NSData *)aMessage messageWithOpCode:(MessageOpCode)aOpCode {
     if (!isClosing) {
-        BOOL isRSV1 = _deflate;
-        if(_deflate) {
+        BOOL isRSV1 = _deflateBool;
+        if(_deflateBool) {
             NSData *deflated = [self deflate:aMessage];
             if(deflated) {
                 aMessage = deflated;
@@ -239,7 +238,7 @@ WebSocketWaitingState waitingState;
         if (messageLength <= self.config.maxPayloadSize) {
             //create and send fragment
             WebSocketFragment *fragment = [WebSocketFragment fragmentWithOpCode:aOpCode isFinal:YES payload:aMessage];
-            if(_deflate)
+            if(_deflateBool)
                 fragment.isRSV1 = isRSV1;
             [fragment buildFragment];
             [self sendMessage:fragment];
@@ -268,7 +267,7 @@ WebSocketWaitingState waitingState;
                 else {
                     fragment = [WebSocketFragment fragmentWithOpCode:MessageOpCodeContinuation isFinal:NO payload:[aMessage subdataWithRange:NSMakeRange(i * self.config.maxPayloadSize, fragmentLength)]];
                 }
-                if(_deflate)
+                if(_deflateBool)
                     fragment.isRSV1 = YES;
                 [fragments addObject:fragment];
             }
@@ -1179,7 +1178,7 @@ WebSocketWaitingState waitingState;
             }
 
             //grab extensions from the server
-            _deflate = NO;
+            _deflateBool = NO;
             NSMutableArray *extensions = [self getServerExtensions:self.config.serverHeaders];
             if (extensions) {
                 self.config.serverExtensions = extensions;
@@ -1197,7 +1196,7 @@ WebSocketWaitingState waitingState;
                         zstrm_out.zalloc = Z_NULL;
                         zstrm_out.zfree = Z_NULL;
                         deflateInit2(&zstrm_out, Z_DEFAULT_COMPRESSION, Z_DEFLATED, -15, 8, Z_DEFAULT_STRATEGY);
-                        _deflate = YES;
+                        _deflateBool = YES;
                     }
                 }
             }
