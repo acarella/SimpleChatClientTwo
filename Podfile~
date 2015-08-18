@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+target 'SimpleChatClientTwo' do
+  pod 'SBJson', '~> 4.0.0'
+  pod 'CocoaAsyncSocket'
+  pod 'JSQMessagesViewController'
+end
+
+target 'SimpleChatClientTwoTests' do
+
+end
+
