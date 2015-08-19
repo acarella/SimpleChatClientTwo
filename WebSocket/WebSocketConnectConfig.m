@@ -87,10 +87,10 @@ NSString* const WebSocketConnectConfigErrorDomain = @"WebSocketConnectConfigErro
     {
         //validate
         NSURL* tempUrl = [NSURL URLWithString:aUrlString];
-        if (![tempUrl.scheme isEqualToString:@"ws"] && ![tempUrl.scheme isEqualToString:@"wss"]) 
-        {
-            [NSException raise:WebSocketConnectConfigException format:@"Unsupported protocol %@",tempUrl.scheme];
-        }
+//        if (![tempUrl.scheme isEqualToString:@"ws"] && ![tempUrl.scheme isEqualToString:@"wss"]) 
+//        {
+//            [NSException raise:WebSocketConnectConfigException format:@"Unsupported protocol %@",tempUrl.scheme];
+//        }
         
         //apply properties
         self.url = tempUrl;

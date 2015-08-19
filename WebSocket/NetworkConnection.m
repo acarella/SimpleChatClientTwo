@@ -28,13 +28,7 @@ NSString *kIRCCloudBacklogCompletedNotification = @"com.irccloud.notification.ba
 NSString *kIRCCloudBacklogProgressNotification = @"com.irccloud.notification.backlog.progress";
 NSString *kIRCCloudEventKey = @"com.irccloud.event";
 
-#if defined(BRAND_HOST)
-NSString *IRCCLOUD_HOST = @BRAND_HOST
-#elif defined(ENTERPRISE)
-NSString *IRCCLOUD_HOST = @"";
-#else
-NSString *IRCCLOUD_HOST = @"api.irccloud.com";
-#endif
+NSString *HOST_ADDRESS = @"localhost";
 NSString *IRCCLOUD_PATH = @"/";
 
 #define TYPE_UNKNOWN 0
@@ -357,7 +351,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 #ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 #endif
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/login", IRCCLOUD_HOST]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/login", HOST_ADDRESS]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     [request setValue:token forHTTPHeaderField:@"x-auth-formtoken"];
@@ -404,7 +398,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 #ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 #endif
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/signup", IRCCLOUD_HOST]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/signup", HOST_ADDRESS]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     [request setValue:token forHTTPHeaderField:@"x-auth-formtoken"];
@@ -436,7 +430,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 #ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 #endif
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/request-access-link", IRCCLOUD_HOST]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/request-access-link", HOST_ADDRESS]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     [request setValue:token forHTTPHeaderField:@"x-auth-formtoken"];
@@ -504,7 +498,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSString *body = [NSString stringWithFormat:@"device_id=%@&session=%@", [self dataToHex:token], session];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/apn-unregister", IRCCLOUD_HOST]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/apn-unregister", HOST_ADDRESS]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     [request setValue:[NSString stringWithFormat:@"session=%@",self.session] forHTTPHeaderField:@"Cookie"];
@@ -536,7 +530,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     CFRelease(referrer_escaped);
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/ios-impressions", IRCCLOUD_HOST]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/ios-impressions", HOST_ADDRESS]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     if(self.session.length)
@@ -559,7 +553,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 #ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 #endif
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/auth-formtoken", IRCCLOUD_HOST]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/auth-formtoken", HOST_ADDRESS]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     [request setHTTPMethod:@"POST"];
@@ -579,7 +573,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 #ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 #endif
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/config", IRCCLOUD_HOST]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/config", HOST_ADDRESS]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     
@@ -598,7 +592,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 #ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 #endif
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/files?page=%i", IRCCLOUD_HOST, page]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/files?page=%i", HOST_ADDRESS, page]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     if(self.session.length)
@@ -619,7 +613,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 #ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 #endif
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/pastebins?page=%i", IRCCLOUD_HOST, page]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/pastebins?page=%i", HOST_ADDRESS, page]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     if(self.session.length)
@@ -846,7 +840,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 -(void)connect:(BOOL)notifier {
     @synchronized(self) {
-        if(IRCCLOUD_HOST.length < 1) {
+        if(HOST_ADDRESS.length < 1) {
             NSLog(@"Not connecting, no host");
             return;
         }
@@ -865,7 +859,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         }
         
         if(!_reachability) {
-            _reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [IRCCLOUD_HOST cStringUsingEncoding:NSUTF8StringEncoding]);
+            _reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [HOST_ADDRESS cStringUsingEncoding:NSUTF8StringEncoding]);
             SCNetworkReachabilityScheduleWithRunLoop(_reachability, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
             SCNetworkReachabilitySetCallback(_reachability, ReachabilityCallback, NULL);
         } else {
@@ -889,7 +883,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         }
         __parserLock = [[NSLock alloc] init];
         
-        NSString *url = [NSString stringWithFormat:@"wss://%@%@",IRCCLOUD_HOST,IRCCLOUD_PATH];
+        NSString *url = [NSString stringWithFormat:@"wss://%@%@",HOST_ADDRESS,IRCCLOUD_PATH];
         if(_highestEID > 0 && _streamId.length) {
             url = [url stringByAppendingFormat:@"?since_id=%.0lf&stream_id=%@", _highestEID, _streamId];
         }
@@ -909,8 +903,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         _reconnectTimestamp = -1;
         _resuming = NO;
         [self performSelectorOnMainThread:@selector(_postConnectivityChange) withObject:nil waitUntilDone:YES];
-        WebSocketConnectConfig* config = [WebSocketConnectConfig configWithURLString:url origin:[NSString stringWithFormat:@"https://%@", IRCCLOUD_HOST] protocols:nil
-                                                                         tlsSettings:[@{(NSString *)kCFStreamSSLPeerName: IRCCLOUD_HOST,
+        WebSocketConnectConfig* config = [WebSocketConnectConfig configWithURLString:url origin:[NSString stringWithFormat:@"https://%@", HOST_ADDRESS] protocols:nil
+                                                                         tlsSettings:[@{(NSString *)kCFStreamSSLPeerName: HOST_ADDRESS,
                                                                                         (NSString *)GCDAsyncSocketSSLProtocolVersionMin:@(kTLSProtocol1),
 #ifndef ENTERPRISE
                                                                                         @"fingerprints":@[@"E6B8B984CA03D68389A227021B11C496770DE26A", @"8D3BE1983F75F4A4546F42F5EC189BC65A9D3A42"]
@@ -1106,9 +1100,9 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 -(void)requestBacklogForBuffer:(int)bid server:(int)cid beforeId:(NSTimeInterval)eid {
     NSString *URL = nil;
     if(eid > 0)
-        URL = [NSString stringWithFormat:@"https://%@/chat/backlog?cid=%i&bid=%i&beforeid=%.0lf", IRCCLOUD_HOST, cid, bid, eid];
+        URL = [NSString stringWithFormat:@"https://%@/chat/backlog?cid=%i&bid=%i&beforeid=%.0lf", HOST_ADDRESS, cid, bid, eid];
     else
-        URL = [NSString stringWithFormat:@"https://%@/chat/backlog?cid=%i&bid=%i", IRCCLOUD_HOST, cid, bid];
+        URL = [NSString stringWithFormat:@"https://%@/chat/backlog?cid=%i&bid=%i", HOST_ADDRESS, cid, bid];
     OOBFetcher *fetcher = [self fetchOOB:URL];
     fetcher.bid = bid;
 }
@@ -1263,7 +1257,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     if([[[[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."] objectAtIndex:0] intValue] >= 7)
         [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
 #endif
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/logout", IRCCLOUD_HOST]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://%@/chat/logout", HOST_ADDRESS]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5];
     [request setHTTPShouldHandleCookies:NO];
     [request setValue:_userAgent forHTTPHeaderField:@"User-Agent"];
     [request setValue:[NSString stringWithFormat:@"session=%@", session] forHTTPHeaderField:@"Cookie"];

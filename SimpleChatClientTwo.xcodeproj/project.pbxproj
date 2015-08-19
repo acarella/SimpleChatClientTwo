@@ -38,6 +38,8 @@
 		BEA985861B83C277002325CC /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA985791B83C277002325CC /* SBJsonWriter.m */; };
 		BEA9858D1B83C55B002325CC /* IRCCloudJSONObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA9858C1B83C55B002325CC /* IRCCloudJSONObject.m */; };
 		BEA9858F1B83DE08002325CC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA9858E1B83DE08002325CC /* libz.dylib */; };
+		BEA985981B83F96D002325CC /* WebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA985971B83F96D002325CC /* WebSocketManager.m */; };
+		BEA9859B1B83FCF3002325CC /* ChatClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA9859A1B83FCF3002325CC /* ChatClientViewController.m */; };
 		FCC68917C37E0A8DC9E89458 /* libPods-SimpleChatClientTwo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BEAB490F382E55631CF5B1F /* libPods-SimpleChatClientTwo.a */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +119,10 @@
 		BEA9858B1B83C55B002325CC /* IRCCloudJSONObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCCloudJSONObject.h; sourceTree = "<group>"; };
 		BEA9858C1B83C55B002325CC /* IRCCloudJSONObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCCloudJSONObject.m; sourceTree = "<group>"; };
 		BEA9858E1B83DE08002325CC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BEA985961B83F96D002325CC /* WebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketManager.h; sourceTree = "<group>"; };
+		BEA985971B83F96D002325CC /* WebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketManager.m; sourceTree = "<group>"; };
+		BEA985991B83FCF3002325CC /* ChatClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatClientViewController.h; sourceTree = "<group>"; };
+		BEA9859A1B83FCF3002325CC /* ChatClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatClientViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,9 +166,9 @@
 		BEA985081B83A78A002325CC = {
 			isa = PBXGroup;
 			children = (
-				BEA9853E1B83A8FB002325CC /* WebSocket */,
 				BEA985131B83A78A002325CC /* SimpleChatClientTwo */,
 				BEA9852D1B83A78A002325CC /* SimpleChatClientTwoTests */,
+				BEA9853E1B83A8FB002325CC /* WebSocket */,
 				BEA9855E1B83C277002325CC /* SBJson */,
 				BEA985121B83A78A002325CC /* Products */,
 				3357D4D34AF332E4CD202FF1 /* Pods */,
@@ -182,6 +188,8 @@
 		BEA985131B83A78A002325CC /* SimpleChatClientTwo */ = {
 			isa = PBXGroup;
 			children = (
+				BEA985991B83FCF3002325CC /* ChatClientViewController.h */,
+				BEA9859A1B83FCF3002325CC /* ChatClientViewController.m */,
 				BEA9858B1B83C55B002325CC /* IRCCloudJSONObject.h */,
 				BEA9858C1B83C55B002325CC /* IRCCloudJSONObject.m */,
 				BEA985181B83A78A002325CC /* AppDelegate.h */,
@@ -194,6 +202,8 @@
 				BEA985211B83A78A002325CC /* Images.xcassets */,
 				BEA985231B83A78A002325CC /* LaunchScreen.xib */,
 				BEA985141B83A78A002325CC /* Supporting Files */,
+				BEA985961B83F96D002325CC /* WebSocketManager.h */,
+				BEA985971B83F96D002325CC /* WebSocketManager.m */,
 			);
 			path = SimpleChatClientTwo;
 			sourceTree = "<group>";
@@ -424,7 +434,9 @@
 				BEA9857D1B83C277002325CC /* SBJsonStreamParserAccumulator.m in Sources */,
 				BEA985811B83C277002325CC /* SBJsonStreamWriter.m in Sources */,
 				BEA985591B83A8FB002325CC /* WebSocketFragment.m in Sources */,
+				BEA9859B1B83FCF3002325CC /* ChatClientViewController.m in Sources */,
 				BEA9857B1B83C277002325CC /* SBJsonParser.m in Sources */,
+				BEA985981B83F96D002325CC /* WebSocketManager.m in Sources */,
 				BEA9855D1B83B3B8002325CC /* NetworkConnection.m in Sources */,
 				BEA985821B83C277002325CC /* SBJsonStreamWriterAccumulator.m in Sources */,
 				BEA9851D1B83A78A002325CC /* ViewController.m in Sources */,

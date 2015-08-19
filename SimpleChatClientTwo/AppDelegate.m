@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "WebSocket.h"
+#import "WebSocketConnectConfig.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WebSocketDelegate>
 
 @end
 
@@ -17,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    WebSocketConnectConfig *config = [[WebSocketConnectConfig alloc]initWithURLString:@"localhost" origin:nil protocols:nil tlsSettings:nil headers:nil verifySecurityKey:nil extensions:nil];
+    WebSocket *socket = [[WebSocket alloc]initWithConfig:config delegate:self];
+    
     return YES;
 }
 

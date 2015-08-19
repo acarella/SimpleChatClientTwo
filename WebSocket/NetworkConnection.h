@@ -27,7 +27,7 @@
 //#import "NotificationsDataSource.h"
 #import <UIKit/UIKit.h>
 
-extern NSString *IRCCLOUD_HOST;
+extern NSString *HOST_ADDRESS;
 extern NSString *IRCCLOUD_PATH;
 
 extern NSString *kIRCCloudConnectivityNotification;
